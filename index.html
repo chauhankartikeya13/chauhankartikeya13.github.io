@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kartikeya Singh Chauhan — AI Engineer | Computer Vision & NLP</title>
+<meta name="description" content="AI/ML Engineer, Published Researcher & Patent Holder specialising in Computer Vision and NLP. DTU alumnus, IIT Indore Research Intern."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+
+<style>
+/* ─── RESET ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Surfaces */
+  --bg:       #ffffff;
+  --bg-alt:   #f7f8fc;
+  --bg-deep:  #f0f2f8;
+  --surface:  #ffffff;
+
+  /* Borders */
+  --border:       #e4e6ef;
+  --border-mid:   #d0d3e3;
+
+  /* Brand */
+  --navy:     #0f1f4b;
+  --blue:     #1a56db;
+  --blue-lt:  #eff4ff;
+  --teal:     #0891b2;
+  --teal-lt:  #ecfeff;
+  --gold:     #b45309;
+  --gold-lt:  #fffbeb;
+  --violet:   #6d28d9;
+  --violet-lt:#f5f3ff;
+  --red-lt:   #fef2f2;
+  --red:      #b91c1c;
+  --green-lt: #f0fdf4;
+  --green:    #166534;
+
+  /* Text */
+  --text:     #0f1117;
+  --text-2:   #374151;
+  --text-3:   #6b7280;
+  --text-4:   #9ca3af;
+
+  /* Type */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+  --font-mono:  'Fira Code', monospace;
+
+  /* Misc */
+  --radius:     10px;
+  --radius-lg:  16px;
+  --shadow-sm:  0 1px 3px rgba(15,31,75,0.06), 0 1px 2px rgba(15,31,75,0.04);
+  --shadow:     0 4px 16px rgba(15,31,75,0.08), 0 1px 4px rgba(15,31,75,0.04);
+  --shadow-lg:  0 12px 40px rgba(15,31,75,0.10), 0 4px 12px rgba(15,31,75,0.06);
+  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ─── NAV ─────────────────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  height: 64px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s var(--ease);
+}
+nav.scrolled { box-shadow: var(--shadow-sm); }
+
+.nav-logo {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+.nav-logo span {
+  color: var(--blue);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--navy); }
+
+.nav-cta {
+  background: var(--navy) !important;
+  color: #fff !important;
+  padding: 8px 22px;
+  border-radius: 6px;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--blue) !important; }
+
+/* ─── HERO ────────────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 6% 80px;
+  background:
+    linear-gradient(160deg, #f0f4ff 0%, #ffffff 55%),
+    radial-gradient(ellipse 60% 50% at 80% 50%, #eff4ff 0%, transparent 70%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fine ruled lines — editorial feel */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 79px,
+    rgba(26,86,219,0.035) 79px,
+    rgba(26,86,219,0.035) 80px
+  );
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue-lt);
+  border: 1px solid #c7d7fc;
+  color: var(--blue);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 5px 14px;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  animation: fadeUp 0.7s ease both;
+}
+.blink {
+  width: 6px; height: 6px;
+  background: var(--blue);
+  border-radius: 50%;
+  animation: blink 1.8s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+h1.hero-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+  animation: fadeUp 0.7s 0.08s ease both;
+}
+h1.hero-name em {
+  font-style: italic;
+  color: var(--blue);
+}
+
+.hero-title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.7s 0.12s ease both;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-2);
+  max-width: 490px;
+  line-height: 1.8;
+  margin-bottom: 2.25rem;
+  animation: fadeUp 0.7s 0.18s ease both;
+}
+.hero-desc strong { color: var(--navy); font-weight: 600; }
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.7s 0.24s ease both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 13px 28px;
+  border-radius: 7px;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(15,31,75,0.18);
+}
+.btn-primary:hover {
+  background: var(--blue);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(26,86,219,0.25);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: 1.5px solid var(--border-mid);
+  color: var(--text-2);
+  font-weight: 500;
+  font-size: 0.88rem;
+  padding: 12px 26px;
+  border-radius: 7px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.btn-outline:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+  background: var(--bg-alt);
+}
+
+/* Hero credential card */
+.hero-card {
+  animation: fadeUp 0.7s 0.15s ease both;
+}
+.credential-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+.cc-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+.cc-avatar {
+  width: 56px; height: 56px;
+  background: var(--navy);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+.cc-name { font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem; color: var(--navy); }
+.cc-role { font-size: 0.78rem; color: var(--text-3); margin-top: 2px; line-height: 1.4; }
+
+.cred-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.cred-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cred-row:hover { border-color: var(--border-mid); box-shadow: var(--shadow-sm); }
+
+.cred-dot {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.cred-dot.gold   { background: var(--gold-lt); }
+.cred-dot.blue   { background: var(--blue-lt); }
+.cred-dot.violet { background: var(--violet-lt); }
+.cred-dot.teal   { background: var(--teal-lt); }
+
+.cred-label { font-size: 0.82rem; font-weight: 600; color: var(--navy); line-height: 1.3; }
+.cred-sub   { font-size: 0.74rem; color: var(--text-3); margin-top: 2px; line-height: 1.4; }
+
+/* ─── STATS STRIP ─────────────────────────────────────────────────── */
+.stats-strip {
+  background: var(--navy);
+  padding: 44px 6%;
+}
+.stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.stat-num span { color: #93c5fd; font-style: italic; }
+.stat-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+  margin-top: 6px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* ─── SHARED SECTION CHROME ───────────────────────────────────────── */
+section { padding: 96px 6%; position: relative; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+h2.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  color: var(--navy);
+  margin-bottom: 0.9rem;
+}
+
+.section-desc {
+  font-size: 0.97rem;
+  color: var(--text-3);
+  max-width: 540px;
+  line-height: 1.75;
+  margin-bottom: 3.5rem;
+}
+
+/* ─── ABOUT ───────────────────────────────────────────────────────── */
+#about { background: var(--bg-alt); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.about-text p {
+  font-size: 0.97rem;
+  color: var(--text-2);
+  line-height: 1.85;
+  margin-bottom: 1.15rem;
+}
+.about-text p strong { color: var(--navy); font-weight: 600; }
+.hl { color: var(--blue); font-weight: 500; }
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.exp-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.35rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+}
+.exp-card:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--border-mid);
+  transform: translateY(-2px);
+}
+.exp-icon { font-size: 1.35rem; margin-bottom: 0.65rem; }
+.exp-title { font-family: var(--font-serif); font-weight: 700; font-size: 0.95rem; color: var(--navy); margin-bottom: 0.3rem; }
+.exp-desc  { font-size: 0.78rem; color: var(--text-3); line-height: 1.6; }
+
+/* ─── RESEARCH ────────────────────────────────────────────────────── */
+#research { background: var(--bg); }
+
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.research-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+.research-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+  border-color: var(--border-mid);
+}
+.research-card.featured {
+  grid-column: span 2;
+  background: var(--bg-alt);
+  border-color: #c7d7fc;
+}
+
+.rc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+}
+.rc-badge.patent { background: var(--gold-lt);   color: var(--gold);   border: 1px solid #fde68a; }
+.rc-badge.paper  { background: var(--blue-lt);   color: var(--blue);   border: 1px solid #c7d7fc; }
+.rc-badge.intern { background: var(--violet-lt); color: var(--violet); border: 1px solid #ddd6fe; }
+
+.rc-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+.rc-meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-3); margin-bottom: 0.9rem; }
+.rc-desc { font-size: 0.88rem; color: var(--text-2); line-height: 1.75; }
+
+.rc-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+.rc-stat-num   { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--navy); letter-spacing: -0.03em; }
+.rc-stat-label { font-size: 0.72rem; color: var(--text-3); margin-top: 1px; }
+
+.rc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 1.25rem;
+  transition: gap 0.2s;
+}
+.rc-link:hover { gap: 8px; }
+
+/* ─── PROJECTS ────────────────────────────────────────────────────── */
+#projects { background: var(--bg-alt); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.25rem;
+}
+.proj-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+.proj-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: var(--border-mid); }
+
+.proj-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.proj-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem;
+}
+.proj-icon.cv     { background: var(--teal-lt); }
+.proj-icon.nlp    { background: var(--blue-lt); }
+.proj-icon.robot  { background: var(--violet-lt); }
+.proj-icon.agri   { background: var(--gold-lt); }
+.proj-icon.hate   { background: var(--red-lt); }
+.proj-icon.gesture{ background: var(--green-lt); }
+
+.proj-status {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+.proj-status.live      { background: var(--green-lt); color: var(--green); border: 1px solid #bbf7d0; }
+.proj-status.building  { background: var(--gold-lt);  color: var(--gold);  border: 1px solid #fde68a; }
+.proj-status.planned   { background: var(--violet-lt);color: var(--violet);border: 1px solid #ddd6fe; }
+
+.proj-title { font-family: var(--font-serif); font-weight: 700; font-size: 0.98rem; color: var(--navy); margin-bottom: 0.45rem; line-height: 1.3; }
+.proj-desc  { font-size: 0.82rem; color: var(--text-3); line-height: 1.65; flex: 1; }
+
+.proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.1rem; }
+.proj-tag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  padding: 3px 9px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-3);
+}
+
+/* ─── EXPERIENCE TIMELINE ─────────────────────────────────────────── */
+#experience { background: var(--bg); }
+
+.timeline { position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--blue), var(--border));
+}
+
+.tl-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  padding: 2.5rem 0 2.5rem 2.25rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 2.75rem;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--blue);
+}
+
+.tl-period {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--blue);
+  margin-bottom: 0.3rem;
+}
+.tl-org      { font-family: var(--font-serif); font-weight: 700; font-size: 0.95rem; color: var(--navy); margin-bottom: 0.2rem; }
+.tl-location { font-size: 0.78rem; color: var(--text-3); }
+
+.tl-role {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin-bottom: 0.85rem;
+}
+.tl-points { list-style: none; }
+.tl-points li {
+  font-size: 0.88rem;
+  color: var(--text-2);
+  padding-left: 1.35rem;
+  position: relative;
+  margin-bottom: 0.6rem;
+  line-height: 1.7;
+}
+.tl-points li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-size: 0.72rem;
+  top: 4px;
+}
+.tl-points li strong { color: var(--navy); font-weight: 600; }
+
+/* ─── SKILLS ──────────────────────────────────────────────────────── */
+#skills { background: var(--bg-alt); }
+
+.skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+
+.skill-block { margin-bottom: 2rem; }
+.skill-block-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-bars { display: flex; flex-direction: column; gap: 0.75rem; }
+.skill-row  { display: flex; align-items: center; gap: 1rem; }
+.skill-name { font-size: 0.83rem; font-weight: 500; color: var(--text-2); min-width: 130px; }
+.skill-track {
+  flex: 1; height: 5px;
+  background: var(--bg-deep);
+  border-radius: 40px;
+  overflow: hidden;
+}
+.skill-fill {
+  height: 100%;
+  border-radius: 40px;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+  transform-origin: left;
+  animation: fillBar 1.2s var(--ease) both;
+  animation-play-state: paused;
+}
+@keyframes fillBar { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+.skill-pct { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-3); min-width: 30px; text-align: right; }
+
+.pills-block { margin-bottom: 1.75rem; }
+.pills-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.pills { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.pill {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  padding: 5px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text-2);
+  transition: border-color 0.2s, color 0.2s;
+}
+.pill:hover { border-color: var(--blue); color: var(--blue); }
+
+.upskilling-card {
+  background: var(--surface);
+  border: 1.5px solid #c7d7fc;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+.uc-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+.uc-title { font-family: var(--font-serif); font-weight: 700; font-size: 0.98rem; color: var(--navy); }
+.live-pill {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background: var(--blue-lt);
+  color: var(--blue);
+  border: 1px solid #c7d7fc;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.uc-desc { font-size: 0.82rem; color: var(--text-3); margin-bottom: 1.1rem; line-height: 1.6; }
+.uc-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.uc-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 5px 12px;
+  background: var(--blue-lt);
+  border: 1px solid #c7d7fc;
+  color: var(--blue);
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+/* ─── EDUCATION ───────────────────────────────────────────────────── */
+#education { background: var(--bg); }
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.edu-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.edu-card:hover { box-shadow: var(--shadow); border-color: var(--border-mid); }
+.edu-period { font-family: var(--font-mono); font-size: 0.72rem; color: var(--blue); margin-bottom: 0.75rem; font-weight: 500; }
+.edu-degree { font-family: var(--font-serif); font-weight: 700; font-size: 1.02rem; color: var(--navy); margin-bottom: 0.4rem; }
+.edu-inst   { font-size: 0.85rem; color: var(--text-3); margin-bottom: 1rem; line-height: 1.5; }
+.edu-tags   { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.edu-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  background: var(--blue-lt);
+  color: var(--blue);
+  border: 1px solid #c7d7fc;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* ─── CONTENT ─────────────────────────────────────────────────────── */
+#content { background: var(--bg-alt); }
+.content-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+.content-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.content-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.content-platform {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 0.85rem;
+  font-weight: 500;
+}
+.content-title { font-family: var(--font-serif); font-weight: 700; font-size: 0.98rem; color: var(--navy); margin-bottom: 0.45rem; }
+.content-desc  { font-size: 0.82rem; color: var(--text-3); line-height: 1.65; flex: 1; }
+.content-link  {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 1.25rem;
+  transition: gap 0.2s;
+}
+.content-link:hover { gap: 8px; }
+
+/* ─── CONTACT ─────────────────────────────────────────────────────── */
+#contact {
+  background: var(--navy);
+  padding: 96px 6%;
+}
+.contact-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-inner .section-label { color: #93c5fd; display: block; text-align: center; }
+.contact-inner h2.section-title { color: #fff; text-align: center; }
+.contact-sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.55);
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+.contact-email {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: #93c5fd;
+  margin: 2rem 0 1.75rem;
+  transition: color 0.2s;
+}
+.contact-email:hover { color: #fff; }
+
+.social-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+}
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.83rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.social-btn:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border-color: rgba(255,255,255,0.25);
+}
+.footer-line {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.28);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  line-height: 1.8;
+}
+
+/* ─── DIVIDERS ────────────────────────────────────────────────────── */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto 3.5rem;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ─── SCROLL REVEAL ───────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ─── ANIMATIONS ──────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .hero-inner          { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-card           { display: none; }
+  .stats-inner         { grid-template-columns: repeat(2,1fr); }
+  .about-grid          { grid-template-columns: 1fr; gap: 2.5rem; }
+  .research-grid       { grid-template-columns: 1fr; }
+  .research-card.featured { grid-column: span 1; }
+  .projects-grid       { grid-template-columns: 1fr 1fr; }
+  .skills-layout       { grid-template-columns: 1fr; }
+  .edu-grid            { grid-template-columns: 1fr; }
+  .content-grid        { grid-template-columns: 1fr; }
+  .tl-item             { grid-template-columns: 1fr; gap: 0.4rem; }
+  .expertise-grid      { grid-template-columns: 1fr 1fr; }
+  .nav-links           { display: none; }
+}
+@media (max-width: 600px) {
+  .projects-grid       { grid-template-columns: 1fr; }
+  .expertise-grid      { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═════════════════════════════════════════════════════════ -->
+<nav id="main-nav">
+  <div class="nav-logo">Kartikeya<span>.</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="mailto:chauhankartikeya13@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span class="blink"></span>Open to AI Engineer Roles · Remote &amp; Full-time</div>
+      <h1 class="hero-name">
+        Kartikeya<br/>
+        <em>Singh Chauhan</em>
+      </h1>
+      <p class="hero-title">AI / ML Engineer &nbsp;·&nbsp; Computer Vision &nbsp;·&nbsp; NLP &nbsp;·&nbsp; Patent Holder</p>
+      <p class="hero-desc">
+        <strong>Published researcher and patent co-inventor</strong> from Delhi Technological University. Springer-indexed NLP research, a granted computer vision patent, and a research internship at IIT Indore — built before graduation. Now building the next generation of AI systems in Computer Vision, LLMs, and Agentic AI.
+      </p>
+      <div class="hero-btns">
+        <a href="#research" class="btn-primary">View Research &darr;</a>
+        <a href="#contact" class="btn-outline">Get in Touch &rarr;</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="credential-card">
+        <div class="cc-header">
+          <div class="cc-avatar">KSC</div>
+          <div>
+            <div class="cc-name">Kartikeya Singh Chauhan</div>
+            <div class="cc-role">AI/ML Engineer · Computer Vision · NLP<br/>DTU · IIT Indore</div>
+          </div>
+        </div>
+        <div class="cred-list">
+          <div class="cred-row">
+            <div class="cred-dot gold">🏛️</div>
+            <div>
+              <div class="cred-label">Granted Patent — March 2024</div>
+              <div class="cred-sub">Precision Agriculture Rover · Pat. No. 529534 · DTU</div>
+            </div>
+          </div>
+          <div class="cred-row">
+            <div class="cred-dot blue">📄</div>
+            <div>
+              <div class="cred-label">Springer Publication — IEMIS 2022</div>
+              <div class="cred-sub">NLP + Evolutionary Algorithms · 825+ accesses</div>
+            </div>
+          </div>
+          <div class="cred-row">
+            <div class="cred-dot violet">🔬</div>
+            <div>
+              <div class="cred-label">Research Intern — IIT Indore</div>
+              <div class="cred-sub">Under Prof. (HAG) Dr. Narendra Chaudhari · Deep Learning</div>
+            </div>
+          </div>
+          <div class="cred-row">
+            <div class="cred-dot teal">🎓</div>
+            <div>
+              <div class="cred-label">B.Tech ECE — Delhi Technological University</div>
+              <div class="cred-sub">Formerly Delhi College of Engineering (DCE)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS STRIP ═══════════════════════════════════════════════════ -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">1 <span>Patent</span></div>
+      <div class="stat-label">Granted · Computer Vision · Indian Patent Office</div>
+    </div>
+    <div>
+      <div class="stat-num">825<span>+</span></div>
+      <div class="stat-label">Research Paper Accesses · Springer IEMIS 2022</div>
+    </div>
+    <div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">Active AI GitHub Repositories · CV · NLP · Robotics</div>
+    </div>
+    <div>
+      <div class="stat-num">3<span>+</span></div>
+      <div class="stat-label">Years Deep AI Research at DTU &amp; IIT Indore</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ══════════════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="section-label">About</span>
+        <h2 class="section-title">Research-grounded.<br/>Systems-focused.</h2>
+        <p>
+          I am an AI/ML Engineer with a research-first foundation built at <strong>Delhi Technological University (DTU)</strong> — one of India's top engineering institutions. My work spans three intersecting domains: <span class="hl">Computer Vision</span>, <span class="hl">Natural Language Processing</span>, and <span class="hl">Agentic AI systems</span>.
+        </p>
+        <p>
+          What distinguishes my profile is that I contribute to AI, not merely consume it. My undergraduate years produced a <strong>Springer-indexed research publication</strong> on evolutionary NLP optimisation, a <strong>granted Indian patent</strong> for an autonomous computer vision rover, and a <strong>research internship at IIT Indore</strong> under a HAG-level Professor of Computer Science. These are peer-reviewed, institutionally validated outputs.
+        </p>
+        <p>
+          I am currently building open-source AI projects across Computer Vision (CNN, YOLO, ViT, Masked R-CNN), NLP (RAG pipelines, LLM fine-tuning, AI agents), and Robotics/Edge AI — all shared publicly on <strong>LinkedIn, Medium, and Substack</strong>.
+        </p>
+        <p>
+          Based in <strong>India</strong>. Open to remote roles globally and full-time positions with serious AI-first organisations.
+        </p>
+      </div>
+
+      <div class="expertise-grid reveal" style="transition-delay:0.12s">
+        <div class="exp-card">
+          <div class="exp-icon">👁️</div>
+          <div class="exp-title">Computer Vision</div>
+          <div class="exp-desc">CNN, YOLO, ViT, Masked R-CNN. Object detection, disease recognition, autonomous perception.</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-icon">🧠</div>
+          <div class="exp-title">NLP &amp; LLMs</div>
+          <div class="exp-desc">TF-IDF, Word2Vec, Transformers, RAG pipelines, LangChain, HuggingFace fine-tuning.</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-icon">🤖</div>
+          <div class="exp-title">Agentic AI</div>
+          <div class="exp-desc">Autonomous AI agents with tool use, memory, and multi-step planning capabilities.</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-icon">🔬</div>
+          <div class="exp-title">ML Research</div>
+          <div class="exp-desc">Evolutionary optimisation (PSO, GA), SMOTE, multi-class classifiers, Springer publication.</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-icon">🌱</div>
+          <div class="exp-title">Edge AI &amp; Robotics</div>
+          <div class="exp-desc">IoT-integrated autonomous systems, edge inference, embedded AI deployment.</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-icon">📊</div>
+          <div class="exp-title">Data Science</div>
+          <div class="exp-desc">Pandas, NumPy, Scikit-learn, data pipelines, feature engineering, model evaluation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESEARCH ═══════════════════════════════════════════════════════ -->
+<section id="research">
+  <div class="section-inner">
+    <span class="section-label">Research &amp; Intellectual Property</span>
+    <h2 class="section-title">Peer-reviewed work &amp;<br/>intellectual property.</h2>
+    <p class="section-desc">Published, patented, and institutionally validated — completed during undergraduate study.</p>
+
+    <div class="research-grid">
+      <div class="research-card featured reveal">
+        <div class="rc-badge patent">🏛️ &nbsp;Granted Patent · March 2024</div>
+        <div class="rc-title">Precision Agriculture Rover for Plant Disease Detection and Control</div>
+        <div class="rc-meta">Pat. No. 529534 &nbsp;·&nbsp; App. No. 202211032321 &nbsp;·&nbsp; Delhi Technological University &nbsp;·&nbsp; Filed: June 2022 &nbsp;·&nbsp; Granted: March 2024</div>
+        <div class="rc-desc">
+          Co-invented an <strong>autonomous ground rover</strong> integrating deep learning-based computer vision for real-time plant disease identification, soil quality analysis sensors, and autonomous navigation. The system identifies disease across multiple plant species and autonomously administers treatment — enabling scalable precision agriculture at low cost. Granted by the Indian Patent Office with Delhi Technological University as the applicant institution.
+        </div>
+        <div class="rc-stats">
+          <div><div class="rc-stat-num">529534</div><div class="rc-stat-label">Patent Number</div></div>
+          <div><div class="rc-stat-num">2024</div><div class="rc-stat-label">Year Granted</div></div>
+          <div><div class="rc-stat-num">CV + IoT</div><div class="rc-stat-label">Domain</div></div>
+          <div><div class="rc-stat-num">DTU</div><div class="rc-stat-label">Applicant Institution</div></div>
+        </div>
+      </div>
+
+      <div class="research-card reveal" style="transition-delay:0.1s">
+        <div class="rc-badge paper">📄 &nbsp;Springer · IEMIS 2022</div>
+        <div class="rc-title">Study on Optimizing Feature Selection in Hate Speech Using Evolutionary Algorithms</div>
+        <div class="rc-meta">Lecture Notes in Networks and Systems, Vol. 490 &nbsp;·&nbsp; DOI: 10.1007/978-981-19-4052-1_70</div>
+        <div class="rc-desc">Applied Particle Swarm Optimisation and Genetic Algorithms to enhance NLP feature vectors (TF-IDF, Word2Vec, Bag of Words) for hate speech classification on Twitter datasets. Demonstrated that parallel evolutionary optimisation counters individual randomness and recovers classification accuracy.</div>
+        <div class="rc-stats">
+          <div><div class="rc-stat-num">825+</div><div class="rc-stat-label">Total Accesses</div></div>
+        </div>
+        <a href="https://link.springer.com/chapter/10.1007/978-981-19-4052-1_70" target="_blank" class="rc-link">Read on Springer &rarr;</a>
+      </div>
+
+      <div class="research-card reveal" style="transition-delay:0.2s">
+        <div class="rc-badge intern">🔬 &nbsp;Research Internship · IIT Indore</div>
+        <div class="rc-title">Real-time Hand Gesture Recognition via Deep Learning</div>
+        <div class="rc-meta">Advisor: Dr. Narendra Chaudhari, Professor (HAG) · Dept. of CSE, IIT Indore &nbsp;·&nbsp; May – July 2022</div>
+        <div class="rc-desc">Designed and implemented a real-time hand gesture recognition pipeline using convolutional neural networks at one of India's premier IITs. Preprocessed video datasets, optimised architecture, and evaluated across multiple gesture classes.</div>
+        <a href="https://github.com/KartikeyaSinghChauhan/Hand-Gesture-Recognition-Using-Deep-Learning" target="_blank" class="rc-link">View on GitHub &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ════════════════════════════════════════════════════════ -->
+<section id="projects">
+  <div class="section-inner">
+    <span class="section-label">Projects</span>
+    <h2 class="section-title">Building in public.</h2>
+    <p class="section-desc">Three focused open-source repositories covering Computer Vision, NLP/LLMs, and Robotics — all publicly documented on GitHub.</p>
+
+    <div class="projects-grid">
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-icon cv">👁️</div>
+          <span class="proj-status building">In Progress</span>
+        </div>
+        <div class="proj-title">Computer Vision Lab</div>
+        <div class="proj-desc">End-to-end CV implementations — CNNs for image classification, YOLOv8 for real-time object detection, Masked R-CNN for instance segmentation, and Vision Transformers (ViT) for state-of-the-art vision tasks. Each module ships with training notebooks, evaluation metrics, and full documentation.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">CNN</span><span class="proj-tag">YOLOv8</span><span class="proj-tag">Masked R-CNN</span><span class="proj-tag">ViT</span><span class="proj-tag">PyTorch</span><span class="proj-tag">OpenCV</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.1s">
+        <div class="proj-top">
+          <div class="proj-icon nlp">🧠</div>
+          <span class="proj-status building">In Progress</span>
+        </div>
+        <div class="proj-title">NLP → RAG → AI Agents</div>
+        <div class="proj-desc">A progressive NLP repository: classical NLP fundamentals, Transformer fine-tuning on HuggingFace, production-grade RAG pipelines with LangChain, and autonomous AI agents with tool use and multi-step planning. From bag-of-words to agentic reasoning in one repo.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">HuggingFace</span><span class="proj-tag">LangChain</span><span class="proj-tag">RAG</span><span class="proj-tag">LLM Fine-tuning</span><span class="proj-tag">Agents</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.2s">
+        <div class="proj-top">
+          <div class="proj-icon robot">🤖</div>
+          <span class="proj-status planned">Planned</span>
+        </div>
+        <div class="proj-title">Robotics · IoT · Edge AI</div>
+        <div class="proj-desc">Autonomous systems at the intersection of AI, IoT, and robotics — building on the patent-winning precision agriculture work. Focus on real-time edge inference, embedded AI deployment, and autonomous decision-making for physical-world systems.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">Edge AI</span><span class="proj-tag">IoT</span><span class="proj-tag">TensorFlow Lite</span><span class="proj-tag">ROS</span><span class="proj-tag">Raspberry Pi</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.05s">
+        <div class="proj-top">
+          <div class="proj-icon agri">🌾</div>
+          <span class="proj-status live">Patented · 2024</span>
+        </div>
+        <div class="proj-title">Precision Agriculture Rover</div>
+        <div class="proj-desc">Autonomous rover detecting plant diseases via computer vision, evaluating soil quality, and autonomously administering treatment. Deployed in a controlled agricultural setting. Forms the basis of Indian Patent No. 529534, granted March 2024.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">Computer Vision</span><span class="proj-tag">Deep Learning</span><span class="proj-tag">Autonomous Nav</span><span class="proj-tag">IoT</span><span class="proj-tag">Patented</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.15s">
+        <div class="proj-top">
+          <div class="proj-icon hate">🛡️</div>
+          <span class="proj-status live">Published · Springer</span>
+        </div>
+        <div class="proj-title">Evolutionary NLP — Hate Speech Detection</div>
+        <div class="proj-desc">PSO and Genetic Algorithm applied to optimise TF-IDF, Word2Vec, and BoW feature vectors. LR, Naive Bayes, and Random Forest classifiers on three Twitter datasets. SMOTE for class balancing. Published at IEMIS 2022 (Springer). 825+ accesses.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">NLP</span><span class="proj-tag">PSO</span><span class="proj-tag">Genetic Algorithm</span><span class="proj-tag">SMOTE</span><span class="proj-tag">Published</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.25s">
+        <div class="proj-top">
+          <div class="proj-icon gesture">✋</div>
+          <span class="proj-status live">IIT Indore · 2022</span>
+        </div>
+        <div class="proj-title">Hand Gesture Recognition</div>
+        <div class="proj-desc">Real-time gesture classification system built at IIT Indore under Professor (HAG) Dr. Narendra Chaudhari. CNN pipeline with video preprocessing, multi-class benchmarking, and live inference. Fully open-source on GitHub.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">CNN</span><span class="proj-tag">OpenCV</span><span class="proj-tag">Real-time</span><span class="proj-tag">Keras</span><span class="proj-tag">IIT Indore</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem">
+      <a href="https://github.com/KartikeyaSinghChauhan" target="_blank" class="btn-outline">View All Repositories on GitHub &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ══════════════════════════════════════════════════════ -->
+<section id="experience">
+  <div class="section-inner">
+    <span class="section-label">Experience</span>
+    <h2 class="section-title">Research &amp; professional<br/>history.</h2>
+    <p class="section-desc">Every role produced tangible, published or patented output.</p>
+
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-period">Jun 2023 – Present</div>
+          <div class="tl-org">Independent</div>
+          <div class="tl-location">India · Remote</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">AI Researcher &amp; Builder — Learning in Public</div>
+          <ul class="tl-points">
+            <li>Conducting structured upskilling in <strong>LLMs, Generative AI, RAG, LangChain, and Agentic AI</strong> with hands-on project execution.</li>
+            <li>Building open-source AI repositories across Computer Vision, NLP, and Robotics — fully documented and publicly available.</li>
+            <li>Sharing technical learnings on <strong>LinkedIn, Medium, and Substack</strong>, building a public AI engineering brand.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-period">May – Jul 2022</div>
+          <div class="tl-org">IIT Indore</div>
+          <div class="tl-location">Indore, India</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Research Intern — Deep Learning &amp; Computer Vision</div>
+          <ul class="tl-points">
+            <li>Worked under <strong>Dr. Narendra Chaudhari, Professor (HAG)</strong>, Department of Computer Science &amp; Engineering, IIT Indore.</li>
+            <li>Designed and implemented a <strong>real-time hand gesture recognition</strong> pipeline using CNNs on video datasets.</li>
+            <li>Performed dataset preprocessing, architecture optimisation, and multi-class benchmark evaluation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-period">Feb 2021 – Jul 2022</div>
+          <div class="tl-org">DTU — Big Data &amp; Web Intelligence Lab</div>
+          <div class="tl-location">New Delhi, India</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Research Associate — Computer Vision &amp; Autonomous Systems</div>
+          <ul class="tl-points">
+            <li>Co-invented an <strong>autonomous precision agriculture rover</strong> integrating computer vision for plant disease detection and soil quality analysis — resulting in <strong>Indian Patent No. 529534, granted March 2024</strong>.</li>
+            <li>Advisor: <strong>Dr. Rahul Katarya</strong>, Big Data Analytics and Web Intelligence Research Lab, DTU.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-period">Apr 2021 – Mar 2022</div>
+          <div class="tl-org">DTU — Programming Lab</div>
+          <div class="tl-location">New Delhi, India</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Research Associate — NLP &amp; Evolutionary Optimisation</div>
+          <ul class="tl-points">
+            <li>Applied <strong>Particle Swarm Optimisation (PSO) and Genetic Algorithms</strong> to enhance NLP feature pipelines (TF-IDF, Word2Vec, BoW) for hate speech classification.</li>
+            <li>Deployed LR, Naive Bayes, and Random Forest classifiers across three Twitter datasets with SMOTE class balancing.</li>
+            <li>Research <strong>published at IEMIS 2022 (Springer)</strong>, DOI: 10.1007/978-981-19-4052-1_70 · 825+ accesses.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS ══════════════════════════════════════════════════════════ -->
+<section id="skills">
+  <div class="section-inner">
+    <span class="section-label">Technical Skills</span>
+    <h2 class="section-title">Stack &amp; expertise.</h2>
+    <p class="section-desc">Research-proven foundations actively expanding into the modern AI engineering frontier.</p>
+
+    <div class="skills-layout">
+      <div class="reveal">
+        <div class="skill-block">
+          <div class="skill-block-label">Core Competencies</div>
+          <div class="skill-bars">
+            <div class="skill-row"><span class="skill-name">Python</span><div class="skill-track"><div class="skill-fill" style="width:90%"></div></div><span class="skill-pct">90%</span></div>
+            <div class="skill-row"><span class="skill-name">Machine Learning</span><div class="skill-track"><div class="skill-fill" style="width:85%"></div></div><span class="skill-pct">85%</span></div>
+            <div class="skill-row"><span class="skill-name">Computer Vision</span><div class="skill-track"><div class="skill-fill" style="width:82%"></div></div><span class="skill-pct">82%</span></div>
+            <div class="skill-row"><span class="skill-name">NLP</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-pct">80%</span></div>
+            <div class="skill-row"><span class="skill-name">Deep Learning</span><div class="skill-track"><div class="skill-fill" style="width:78%"></div></div><span class="skill-pct">78%</span></div>
+          </div>
+        </div>
+
+        <div class="pills-block">
+          <div class="pills-label">Libraries &amp; Frameworks</div>
+          <div class="pills">
+            <span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">Scikit-learn</span>
+            <span class="pill">TensorFlow</span><span class="pill">Keras</span><span class="pill">OpenCV</span>
+          </div>
+        </div>
+
+        <div class="pills-block">
+          <div class="pills-label">NLP Techniques</div>
+          <div class="pills">
+            <span class="pill">TF-IDF</span><span class="pill">Word2Vec</span><span class="pill">Bag of Words</span>
+            <span class="pill">SMOTE</span><span class="pill">PSO</span><span class="pill">Genetic Algorithms</span>
+          </div>
+        </div>
+
+        <div class="pills-block">
+          <div class="pills-label">Tools</div>
+          <div class="pills">
+            <span class="pill">Git / GitHub</span><span class="pill">Jupyter</span>
+            <span class="pill">Google Colab</span><span class="pill">SQL</span><span class="pill">VS Code</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:0.12s">
+        <div class="upskilling-card">
+          <div class="uc-head">
+            <div class="uc-title">GenAI Engineering Stack</div>
+            <span class="live-pill">● Actively Building</span>
+          </div>
+          <div class="uc-desc">Structured, hands-on upskilling in modern AI engineering — every item below is being implemented in live open-source projects.</div>
+          <div class="uc-pills">
+            <span class="uc-pill">HuggingFace Transformers</span>
+            <span class="uc-pill">LangChain</span>
+            <span class="uc-pill">RAG Pipelines</span>
+            <span class="uc-pill">LLM Fine-tuning</span>
+            <span class="uc-pill">Agentic AI</span>
+            <span class="uc-pill">Prompt Engineering</span>
+            <span class="uc-pill">OpenAI API</span>
+            <span class="uc-pill">YOLOv8</span>
+            <span class="uc-pill">Vision Transformers</span>
+            <span class="uc-pill">Masked R-CNN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDUCATION ═══════════════════════════════════════════════════════ -->
+<section id="education">
+  <div class="section-inner">
+    <span class="section-label">Education</span>
+    <h2 class="section-title">Academic foundation.</h2>
+    <div class="edu-grid reveal">
+      <div class="edu-card">
+        <div class="edu-period">August 2019 – June 2023</div>
+        <div class="edu-degree">B.Tech — Electronics &amp; Communication Engineering</div>
+        <div class="edu-inst">Delhi Technological University (DTU) · Formerly Delhi College of Engineering (DCE) · New Delhi, India</div>
+        <div class="edu-tags">
+          <span class="edu-tag">Springer Publication</span>
+          <span class="edu-tag">Granted Patent</span>
+          <span class="edu-tag">2 Research Labs</span>
+          <span class="edu-tag">IIT Internship</span>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-period">Coursera · Ongoing</div>
+        <div class="edu-degree">Certifications in AI, ML &amp; Python</div>
+        <div class="edu-inst">Crash Course on Python · Programming for Everybody · Python Data Structures · Competitive Programmer's Core Skills · Particle Physics (University of Geneva, Coursera)</div>
+        <div class="edu-tags">
+          <span class="edu-tag">Google</span>
+          <span class="edu-tag">University of Michigan</span>
+          <span class="edu-tag">University of Geneva</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTENT ══════════════════════════════════════════════════════════ -->
+<section id="content">
+  <div class="section-inner">
+    <span class="section-label">Content &amp; Writing</span>
+    <h2 class="section-title">Learning in public.</h2>
+    <p class="section-desc">Documenting the journey from deep research to modern AI engineering — across three platforms.</p>
+
+    <div class="content-grid">
+      <div class="content-card reveal">
+        <div class="content-platform">💼 LinkedIn</div>
+        <div class="content-title">AI Engineering Posts — 3× per week</div>
+        <div class="content-desc">Technical breakdowns of Computer Vision architectures, NLP concepts, and AI engineering learnings. Documenting real project builds — from training losses to deployment decisions — for engineers and technical hiring managers.</div>
+        <a href="https://www.linkedin.com/in/kartikeyasingh-chauhan" target="_blank" class="content-link">Follow on LinkedIn &rarr;</a>
+      </div>
+      <div class="content-card reveal" style="transition-delay:0.1s">
+        <div class="content-platform">✍️ Medium</div>
+        <div class="content-title">Long-form Technical Articles</div>
+        <div class="content-desc">In-depth articles on Computer Vision architectures, NLP research replication, and hands-on GenAI tutorials — written for engineers who want rigour over surface-level coverage.</div>
+        <a href="https://medium.com/" target="_blank" class="content-link">Read on Medium &rarr;</a>
+      </div>
+      <div class="content-card reveal" style="transition-delay:0.2s">
+        <div class="content-platform">📬 Substack</div>
+        <div class="content-title">The AI Engineering Chronicle</div>
+        <div class="content-desc">A newsletter at the intersection of AI research and engineering practice. Weekly: what I built, what I learned, what the research says — and what it means for real AI systems.</div>
+        <a href="https://substack.com/" target="_blank" class="content-link">Subscribe &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ══════════════════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-inner">
+    <span class="section-label">Contact</span>
+    <h2 class="section-title">Let's build something<br/>serious together.</h2>
+    <p class="contact-sub">Open to AI Engineer, ML Engineer, and Data Scientist roles — remote or full-time, India or global.</p>
+    <a href="mailto:chauhankartikeya13@gmail.com" class="contact-email">chauhankartikeya13@gmail.com</a>
+    <div class="social-row">
+      <a href="https://www.linkedin.com/in/kartikeyasingh-chauhan" target="_blank" class="social-btn">💼 LinkedIn</a>
+      <a href="https://github.com/KartikeyaSinghChauhan" target="_blank" class="social-btn">🐙 GitHub</a>
+      <a href="https://scholar.google.com/citations?user=K5RgML8AAAAJ&hl=en" target="_blank" class="social-btn">🎓 Google Scholar</a>
+      <a href="https://link.springer.com/chapter/10.1007/978-981-19-4052-1_70" target="_blank" class="social-btn">📄 Springer Paper</a>
+    </div>
+    <div class="footer-line">
+      © 2025 Kartikeya Singh Chauhan &nbsp;·&nbsp; AI/ML Engineer · Computer Vision · NLP<br/>
+      Patent No. 529534 &nbsp;·&nbsp; Springer IEMIS 2022 &nbsp;·&nbsp; Delhi Technological University &nbsp;·&nbsp; IIT Indore
+    </div>
+  </div>
+</section>
+
+<script>
+/* Scroll reveal */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* Nav shadow on scroll */
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+/* Skill bar animation */
+const sio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.skill-fill').forEach((bar, i) => {
+        setTimeout(() => { bar.style.animationPlayState = 'running'; }, i * 80);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.skill-bars').forEach(el => {
+  el.querySelectorAll('.skill-fill').forEach(b => b.style.animationPlayState = 'paused');
+  sio.observe(el);
+});
+
+/* Smooth anchor scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
